@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pip install virtualenv virtualenvwrapper -y
+sudo pip install virtualenv virtualenvwrapper
 sudo rm -rf ~/get-pip.py ~/.cache/pip
 
 # Update and reload .bashrc
@@ -17,7 +17,7 @@ pip install gunicorn
 #pip install -r requirements.txt
 python -c "import cv2; print(cv2.__version__)"
 
-cp server.conf /etc/supervisor/conf.d/f-barnacle-server.conf
+sudo cp server.conf /etc/supervisor/conf.d/f-barnacle-server.conf
 sudo mkdir -p /var/log/f-barnacle-server/
 sudo touch var/log/f-barnacle-server/fbs-err.log
 sudo touch var/log/f-barnacle-server/fbs-out.log
@@ -26,7 +26,7 @@ chmod +x serve.sh
 
 sudo apt-get install gunicorn nginx -y
 sudo rm /etc/ngix/sites-enabled/default
-cp f-bs-nginx /etc/ngix/sites-enabled/f-bs-nginx
+sudo cp f-bs-nginx /etc/ngix/sites-enabled/f-bs-nginx
 
 sudo apt-get install ufw -y
 sudo ufw default allow outgoing

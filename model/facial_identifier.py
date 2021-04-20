@@ -84,7 +84,7 @@ def identify(photo_url):
         cv2.putText(image, name, (left, y), cv2.FONT_HERSHEY_SIMPLEX,
                     .8, (0, 255, 255), 2)
 
-    img_name = "photos/" + currentname + "/image_{}.jpg".format(randrange(100))
+    img_name = "static/" + currentname + "_image_{}.jpg".format(randrange(100))
     cv2.imwrite(img_name, image)
 
     return currentname

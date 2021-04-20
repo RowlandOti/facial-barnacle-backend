@@ -2,11 +2,14 @@
 
 sudo pip install virtualenv virtualenvwrapper
 sudo rm -rf ~/get-pip.py ~/.cache/pip
+sudo apt-get install python3.7 python3-pip
 
 # Update and reload .bashrc
-echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
-echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
-source ~/.bashrc
+echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.profile
+echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.profile
+echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3" >> ~/.profile
+echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
+source ~/.profile
 
 # Create virtual environment
 mkvirtualenv cv -p python3
@@ -38,5 +41,5 @@ sudo ufw allow 443
 sudo ufw allow 8080
 sudo ufw status
 #
-sudo ufw enable -y
-sudo systemctl restart nginx -y
+sudo ufw enable
+sudo systemctl restart nginx

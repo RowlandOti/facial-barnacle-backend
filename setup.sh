@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo pip install virtualenv virtualenvwrapper
+sudo apt-get install python3.7 python3-pip -y
+sudo pip3 install virtualenv virtualenvwrapper
 sudo rm -rf ~/get-pip.py ~/.cache/pip
-sudo apt-get install python3.7 python3-pip
 
 # Update and reload .bashrc
 echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.profile

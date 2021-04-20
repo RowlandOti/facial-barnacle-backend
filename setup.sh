@@ -25,8 +25,8 @@ sudo supervisorctl reload
 chmod +x serve.sh
 
 sudo apt-get install gunicorn nginx -y
-sudo rm /etc/ngix/sites-enabled/default
-sudo cp f-bs-nginx /etc/ngix/sites-enabled/f-bs-nginx
+sudo rm /etc/nginx/sites-enabled/default
+sudo cp f-bs-nginx /etc/nginx/sites-enabled/f-bs-nginx
 
 sudo apt-get install ufw -y
 sudo ufw default allow outgoing

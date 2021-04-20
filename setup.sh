@@ -19,8 +19,8 @@ python -c "import cv2; print(cv2.__version__)"
 
 sudo cp server.conf /etc/supervisor/conf.d/f-barnacle-server.conf
 sudo mkdir -p /var/log/f-barnacle-server/
-sudo touch var/log/f-barnacle-server/fbs-err.log
-sudo touch var/log/f-barnacle-server/fbs-out.log
+sudo touch /var/log/f-barnacle-server/fbs-err.log
+sudo touch /var/log/f-barnacle-server/fbs-out.log
 sudo supervisorctl reload
 chmod +x serve.sh
 
@@ -38,5 +38,5 @@ sudo ufw allow 443
 sudo ufw allow 8080
 sudo ufw status
 #
-sudo ufw enable
-sudo systemctl restart nginx
+sudo ufw enable -y
+sudo systemctl restart nginx -y

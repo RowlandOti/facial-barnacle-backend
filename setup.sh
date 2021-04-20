@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pip install virtualenv virtualenvwrapper
+sudo pip install virtualenv virtualenvwrapper -y
 sudo rm -rf ~/get-pip.py ~/.cache/pip
 
 # Update and reload .bashrc
@@ -13,6 +13,7 @@ mkvirtualenv cv -p python3
 
 # Install additional modules
 workon cv
+pip install gunicorn
 #pip install -r requirements.txt
 python -c "import cv2; print(cv2.__version__)"
 
@@ -22,3 +23,20 @@ sudo touch var/log/f-barnacle-server/fbs-err.log
 sudo touch var/log/f-barnacle-server/fbs-out.log
 sudo supervisorctl reload
 chmod +x serve.sh
+
+sudo apt-get install gunicorn nginx -y
+sudo rm /etc/ngix/sites-enabled/default
+cp f-bs-nginx /etc/ngix/sites-enabled/f-bs-nginx
+
+sudo apt-get install ufw -y
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw allow http/tcp
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw allow 8080
+sudo ufw status
+#
+sudo ufw enable
+sudo systemctl restart nginx

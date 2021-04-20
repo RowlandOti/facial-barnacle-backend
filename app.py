@@ -1,8 +1,10 @@
 from flask import Flask, request
 
 from model.facial_identifier import identify
+from flask_talisman import Talisman
 
 app = Flask(__name__)
+talisman = Talisman(app)
 
 
 @app.route('/')

@@ -1,6 +1,8 @@
 server {
-    listen 80;
+    listen 443 ssl;
     server_name 192.168.0.107;
+    ssl_certificate /home/pi/facial-barnacle-server/cert.pem
+    ssl_certificate_key /home/pi/facial-barnacle-server/key.pem
 
     location /static {
         alias /home/pi/facial-barnacle-server/static;

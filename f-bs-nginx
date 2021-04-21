@@ -1,8 +1,16 @@
 server {
+    listen 80;
     listen 443 ssl;
     server_name 192.168.0.107;
     ssl_certificate /home/pi/facial-barnacle-server/cert.pem
     ssl_certificate_key /home/pi/facial-barnacle-server/key.pem
+    ssl_dhparam /home/pi/facial-barnacle-server/dhparam.pem;
+    ssl_protocols TLSv1.2;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    add_header Strict-Transport-Security max-age=15768000;
 
     location /static {
         alias /home/pi/facial-barnacle-server/static;

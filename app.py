@@ -1,9 +1,11 @@
 from flask import Flask, request
 
 from model.facial_identifier import identify
+from flask_seasurf import SeaSurf
 from flask_talisman import Talisman
 
 app = Flask(__name__)
+csrf = SeaSurf(app)
 talisman = Talisman(app)
 
 

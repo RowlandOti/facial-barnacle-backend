@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 
 from model.facial_identifier import identify
 from flask_seasurf import SeaSurf
@@ -7,6 +8,7 @@ from flask_talisman import Talisman
 app = Flask(__name__)
 app.secret_key = "super secret key"
 csrf = SeaSurf(app)
+CORS(app)
 talisman = Talisman(app)
 
 

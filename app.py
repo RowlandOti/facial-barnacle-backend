@@ -5,6 +5,7 @@ from flask_seasurf import SeaSurf
 from flask_talisman import Talisman
 
 app = Flask(__name__)
+app.secret_key = "super secret key"
 csrf = SeaSurf(app)
 talisman = Talisman(app)
 

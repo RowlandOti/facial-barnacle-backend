@@ -8,3 +8,5 @@
 /static/rowland_image_*.jpg
 /1
 /serverlog.log
+/fbs-err.log
+/fbs-out-log

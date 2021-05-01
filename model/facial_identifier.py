@@ -65,7 +65,7 @@ def identify(photo_url):
             # determine the recognized face with the largest number
             # of votes (note: in the event of an unlikely tie Python
             # will select first entry in the dictionary)
-            name = max(counts, key=counts.get)
+            name = max(counts, key=counts.get, default="Unknown")
 
             # If someone in your dataset is identified, print their name on the screen
             if currentname != name:

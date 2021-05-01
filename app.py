@@ -8,8 +8,12 @@ from flask_talisman import Talisman
 app = Flask(__name__)
 app.secret_key = "super secret key"
 csrf = SeaSurf(app)
-CORS(app)
+CORS(app, supports_credentials=True)
 talisman = Talisman(app)
+
+app.config['ENV'] = 'development'
+app.config['DEBUG'] = True
+app.config['TESTING'] = True
 
 
 @app.route('/')

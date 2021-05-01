@@ -6,14 +6,11 @@ from flask_seasurf import SeaSurf
 from flask_talisman import Talisman
 
 app = Flask(__name__)
-app.secret_key = "super secret key"
+app.secret_key = "!5}2|f137<^-gTs8'nEmN]6S3eRg1u"
+app.config['CSRF_CHECK_REFERER'] = False
 csrf = SeaSurf(app)
 CORS(app, supports_credentials=True)
 talisman = Talisman(app)
-
-app.config['ENV'] = 'development'
-app.config['DEBUG'] = True
-app.config['TESTING'] = True
 
 
 @app.route('/')

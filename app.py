@@ -26,7 +26,7 @@ def status():
 
     return result
 
-
+@csrf.exempt
 @app.route('/api/login', methods=['POST'])
 def facial_login():
     request_data = request.get_json()
